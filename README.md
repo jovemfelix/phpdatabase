@@ -7,8 +7,16 @@ oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l db
 
 ## Deploy php application and link with MYSQL
 
+```ruby
+oc new-app https://github.com/jovemfelix/phpdatabase MYSQL_SERVICE_HOST=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l app=php5db
 ```
-oc new-app https://github.com/jovemfelix/phpdatabase MYSQL_SERVICE_HOST=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb -l app=phpdatabase
+
+```ruby
+oc new-app --docker-image="registry.access.redhat.com/rhscl/php-71-rhel7:latest" https://github.com/jovemfelix/phpdatabase MYSQL_SERVICE_HOST=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb --name=testphp71db
+```
+
+```ruby
+oc new-app --docker-image="registry.access.redhat.com/rhscl/php-72-rhel7:latest" https://github.com/jovemfelix/phpdatabase MYSQL_SERVICE_HOST=mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABASE=testdb --name=testphp72db
 ```
 
 
@@ -50,3 +58,4 @@ CREATE TABLE IF NOT EXISTS tasks (
 
 - <http://www.mysqltutorial.org/mysql-create-table/>
 - <https://github.com/debianmaster/openshift-examples/tree/master/php-mysql-example>
+- <https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/php.html>
