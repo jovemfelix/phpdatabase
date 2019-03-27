@@ -14,7 +14,7 @@ if ($connection->connect_errno) {
     printf("SHOW TABLES:");
 
     //Connect to MySQL using the PDO object.
-    $pdo = new PDO('mysql:host=$dbhost;dbname=$dbname', '$dbuser', '$dbpwd');
+    $pdo = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpwd);
     
     //Our SQL statement, which will select a list of tables from the current MySQL database.
     $sql = "SHOW TABLES";
