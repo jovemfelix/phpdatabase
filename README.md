@@ -18,3 +18,24 @@ oc new-app https://github.com/jovemfelix/phpdatabase MYSQL_SERVICE_HOST=mysql MY
 ```
 oc expose svc phpdatabase
 ```
+
+
+
+## Test MYSQL
+
+```bash
+mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h ${MYSQL_SERVICE_HOST} -P ${MYSQL_SERVICE_PORT} ${MYSQL_DATABASE} 
+```
+
+```mysql
+show tables
+```
+
+
+
+
+
+## Reference
+
+- <http://www.mysqltutorial.org/mysql-create-table/>
+- <https://github.com/debianmaster/openshift-examples/tree/master/php-mysql-example>

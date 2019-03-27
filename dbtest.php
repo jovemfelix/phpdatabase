@@ -10,8 +10,8 @@ if ($connection->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 } else {
-    printf("Connected to the database");
-    printf("SHOW TABLES:");
+    printf("Connected to the database<br>");
+    printf("TABLES list:<br>");
 
     //Connect to MySQL using the PDO object.
     $pdo = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpwd);
@@ -28,11 +28,13 @@ if ($connection->connect_errno) {
     //Fetch the rows from our statement.
     $tables = $statement->fetchAll(PDO::FETCH_NUM);
     
+    printf("<ul>");
     //Loop through our table names.
     foreach($tables as $table){
         //Print the table name out onto the page.
-        echo $table[0], '<br>';
+        echo '<li>'.$table[0], '</li><br>';
     } 
+    printf("</ul>");
 }
 $connection->close();
 ?>
