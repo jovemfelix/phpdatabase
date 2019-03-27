@@ -31,7 +31,18 @@ mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h ${MYSQL_SERVICE_HOST} -P ${MYSQL_S
 show tables
 ```
 
-
+```mysql
+CREATE TABLE IF NOT EXISTS tasks (
+    task_id INT AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    start_date DATE,
+    due_date DATE,
+    status TINYINT NOT NULL,
+    priority TINYINT NOT NULL,
+    description TEXT,
+    PRIMARY KEY (task_id)
+)  ENGINE=INNODB;
+```
 
 
 
